@@ -1,0 +1,40 @@
+# Project configuration
+
+# Paths
+output_dir: outputs
+# Set to the absolute path of your dataset root directory
+# The dataset should contain subfolders: train_out, valid_out, test_out
+# Each with class folders: fake, genuine
+dataset_path: dataset
+
+# Data
+img_size: 1024
+batch_size: 8
+num_workers: 2
+
+# Model
+model_name: efficientnet_b3
+pretrained: true
+dropout: 0.3
+
+# Loss
+use_focal_loss: false
+focal_alpha: 0.25
+focal_gamma: 2.0
+
+# Optimizer
+learning_rate: 0.0002
+weight_decay: 0.0005
+
+# Scheduler
+scheduler_t0: 10
+scheduler_tmult: 2
+
+# Training	num_epochs: 30
+save_frequency: 5
+
+# Inference defaults
+inference:
+  model_checkpoint: outputs/checkpoints/best_model.pth
+  device: auto
+  img_size: 1024
